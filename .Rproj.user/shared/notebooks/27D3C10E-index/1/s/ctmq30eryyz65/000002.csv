@@ -1,4 +1,0 @@
-"0",""
-"0","# Scatterplot matrix of all numeric variables"
-"0","pairs(~., data = med[, sapply(med, is.numeric)], main = ""Scatterplot Matrix of variables"")"
-"0",""

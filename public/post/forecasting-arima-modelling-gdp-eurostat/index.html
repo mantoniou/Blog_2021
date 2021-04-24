@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta name="author" content="Author">
+		<meta name="description" content="My Blog">
+		<meta name="generator" content="Hugo 0.82.1" />
+		<title>Forecasting GDP in the eurozone &middot; Manos Antoniou</title>
+		<link rel="shortcut icon" href="https://www.manosantoniou.com/images/favicon.ico">
+		<link rel="stylesheet" href="https://www.manosantoniou.com/css/style.css">
+		<link rel="stylesheet" href="https://www.manosantoniou.com/css/highlight.css">
+
+		
+		<link rel="stylesheet" href="https://www.manosantoniou.com/css/monosocialiconsfont.css">
+		
+
+		
+		<link href="https://www.manosantoniou.com/index.xml" rel="alternate" type="application/rss+xml" title="Manos Antoniou" />
+		
+
+		
+	</head>
+
+    <body>
+       <nav class="main-nav">
+	
+	
+		<a href='https://www.manosantoniou.com/'> <span class="arrow">←</span>Home</a>
+	
+	<a href='https://www.manosantoniou.com/about'>About</a>
+	<a href='https://www.manosantoniou.com/tags'>Tags</a>
+	<a href='https://www.linkedin.com/in/manos-antoniou-a558001b/'>LinkedIn</a>
+
+
+	
+
+	
+	<a class="cta" href="https://www.manosantoniou.com/index.xml">Subscribe</a>
+	
+</nav>
+
+
+        <section id="wrapper" class="post">
+            <article>
+                <header>
+                    <h1>
+                        Forecasting GDP in the eurozone
+                    </h1>
+                    <h2 class="headline">
+                    Aug 26, 2018 00:00
+                    · 1137 words
+                    · 6 minute read
+                      <span class="tags">
+                      
+                      
+                          
+                              <a href="https://www.manosantoniou.com/tags/forecasting">Forecasting</a>
+                          
+                              <a href="https://www.manosantoniou.com/tags/arima">Arima</a>
+                          
+                              <a href="https://www.manosantoniou.com/tags/eurostat">Eurostat</a>
+                          
+                      
+                      
+                      </span>
+                    </h2>
+                </header>
+                
+                <section id="post-body">
+                    
+<script src="https://www.manosantoniou.com/post/forecasting-arima-modelling-gdp-eurostat/index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>This analysis uses public Eurostat datasets, to forecast future total quarterly
+GDP of all eurozone countries. Eurostat is the statistical
+office of the European Union situated in Luxembourg. Its mission is to provide
+high quality statistics for Europe. Eurostat offers a whole range of important
+and interesting data that governments, businesses, the education sector,
+journalists and the public can use for their work and daily life.<br />
+In particular, the eurozone (EU 19) quarterly GDP (Gross domestic product)
+dataset is used. The eurozone consists of 19 countries: Austria, Belgium, Cyprus,
+Estonia, Finland, France, Germany, Greece, Ireland, Italy, Latvia, Lithuania,
+Luxembourg, Malta, the Netherlands, Portugal, Slovakia, Slovenia, and Spain.</p>
+<p>Gross domestic (GDP) is a monetary measure of the market value of all the final
+goods and services produced in a period (quarterly or yearly) of time. It is
+commonly used to determine the economic performance of a country or regions.</p>
+<p>The <a href="https://cran.r-project.org/web/packages/eurostat/index.html">Eurostat package</a>
+used to obtain the dataset and <a href="https://cran.r-project.org/web/packages/forecast/index.html">Forecast package</a>
+for the ARIMA modelling.</p>
+<p>More details about the ETL steps can be found, in the actual code, at the link
+at the end of the article.</p>
+<div id="exploratory-analysis" class="section level1">
+<h1>Exploratory Analysis</h1>
+<p>During exploratory analysis, we try to discover patterns in the time series such as:<br />
+- <strong>Trend</strong> A pattern involving long-term increase or decrease in the time series<br />
+- <strong>Seasonality</strong> A period pattern exists due to the calendar (e.g. quarter,
+month, weekday)<br />
+- <strong>Cyclicity</strong> A pattern exists where the data exhibits rise and fall that
+are not of a fixed period (duration usually of at least two years)</p>
+<p>Below there is a time series plot of the Eurozone countries quarterly GDP since 1995.</p>
+<p><img src="https://www.manosantoniou.com/post/forecasting-arima-modelling-gdp-eurostat/index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>There are a few outputs from the time series plot above:<br />
+- We can say that there is an overall positive trend<br />
+- There is no noticeable increased/decreased variability in the trend<br />
+- It looks that there is some seasonality, but needs further investigation<br />
+- There is no cyclicity<br />
+- There is a significant disruption in GDP growth around years 2008-9</p>
+<p>A seasonal plot is used below to investigate seasonality. A seasonal plot is
+similar to a time plot except that the data are plotted against the individual
+“seasons” in which the data were observed.</p>
+<p><img src="https://www.manosantoniou.com/post/forecasting-arima-modelling-gdp-eurostat/index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>This strengthens our confidence for seasonality in the time series. It seems that the
+4th quarter is always the higher, while the 1st is the lowest in each year.
+The 2nd &amp; 3rd are about the same.</p>
+<p>A lag plot will help us understand if there is autocorrelation in the time series.
+Another way to look at time series data is to plot each observation against another
+observation that occurred some time previously. For example, you could plot yt
+against yt−1. This is called a lag plot because you are plotting the time series
+against lags of itself.
+Basically it is a scatterplot between the time series and the lagged values of the time series.</p>
+<p><img src="https://www.manosantoniou.com/post/forecasting-arima-modelling-gdp-eurostat/index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>There is a strong seasonality at lag 4 (1 year), as all quarters line plots follow
+an almost identical path.</p>
+<p>Below there is an autocorrelation function plot. The correlations associated with
+the lag plots form what is called the autocorrelation function (ACF).
+Spices that exceeds the confidence intervals (blue lines) indicates that autocorrelation
+with specific lag is statistically significant (different than zero)</p>
+<p><img src="https://www.manosantoniou.com/post/forecasting-arima-modelling-gdp-eurostat/index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>It looks that there are significant autocorrelations at all lags, which indicates a
+trend and/or seasonality in the time series.</p>
+<p>We can also use the Ljung-Box test to test if the time series is white noise.
+White noise is a time series that is purely random. Below
+there is a test at lag 4.</p>
+<pre><code>## 
+##  Box-Ljung test
+## 
+## data:  gdp_ts
+## X-squared = 319.62, df = 4, p-value &lt; 2.2e-16</code></pre>
+<p>Ljung-Box test p-value is very small &lt; 0.01, so there is strong evidence that the
+time series is not white noise and has seasonality and/or trend.</p>
+</div>
+<div id="modelling" class="section level1">
+<h1>Modelling</h1>
+<p>ARIMA (Auto-regressive integrated moving average) models provide one of the main
+approaches to time series forecasting. It is the most widely-used approach to
+time series forecasting, and aim to describe the autocorrelations in the data.</p>
+<p>The final fitted model was produced by the auto.arima() function of the <strong>forecast library</strong>.
+It rapidly estimates a series of model and return the best, according to either AIC, AICc or BIC value.
+After fitting the ARIMA model, it is essential to check that the residuals are
+well-behaved (i.e., no outlines or patterns) and resemble white noise. Below there
+are some residual plots for the fitted ARIMA model.</p>
+<p><img src="https://www.manosantoniou.com/post/forecasting-arima-modelling-gdp-eurostat/index_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<pre><code>## 
+##  Ljung-Box test
+## 
+## data:  Residuals from ARIMA(3,1,0)(0,1,2)[4]
+## Q* = 3.7729, df = 3, p-value = 0.2871
+## 
+## Model df: 5.   Total lags used: 8</code></pre>
+<p>We can say that the model is fairly good, since the residuals are closely normally
+distributed, have no real pattern and autocorrelations are not significant.<br />
+The final model is a seasonal <strong>ARIMA(2,1,1)(0,1,1)[4]</strong>. Both seasonal and first differences
+have been used, indicated by the middle slot in each part of the model. Also, one lagged error
+and one seasonally lagged error has been selected, indicated by the last slot in
+each part of the model. Two autoregression terms have been used, indicated by the first slot in the
+model. No seasonal autoregression terms have been used.</p>
+<p>Finally, the accuracy of the forecasting model is examined. Below
+there is a test for the model accuracy, using all four quarters in 2017 &amp; the 1st quarter of 2018
+as a test set.</p>
+<pre><code>##                     ME     RMSE      MAE         MPE     MAPE      MASE
+## Training set -1939.741 18227.96 13162.32 -0.08904229 0.636205 0.1914578
+## Test set     53381.557 55964.14 53381.56  1.90697066 1.906971 0.7764830
+##                    ACF1 Theil&#39;s U
+## Training set 0.05467523        NA
+## Test set     0.05995906 0.7616938</code></pre>
+<p>MAPE (Mean absolute percentage error) for the test set is 1.68, so we can conclude that the prediction
+accuracy of the model is around <strong>98.3 %</strong>.</p>
+<p>Below there is a time series plot of the Eurozone countries quarterly GDP forecasts
+for 2018-19.</p>
+<p><img src="https://www.manosantoniou.com/post/forecasting-arima-modelling-gdp-eurostat/index_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<ul>
+<li>It looks that GDP will keep growing in the next couple of years. In particular
+the forecasts for the future quarters are:</li>
+</ul>
+<pre><code>##         Point Forecast   Lo 80   Hi 80   Lo 95   Hi 95
+## 2018 Q2        2888644 2854993 2922692 2837338 2940878
+## 2018 Q3        2894625 2842396 2947813 2815131 2976364
+## 2018 Q4        2995199 2921286 3070982 2882900 3111873
+## 2019 Q1        2892031 2805760 2980954 2761138 3029128
+## 2019 Q2        2981255 2869394 3097476 2811888 3160823
+## 2019 Q3        2981904 2849446 3120520 2781726 3196488
+## 2019 Q4        3086398 2928649 3252645 2848432 3344245</code></pre>
+<ul>
+<li>It seems that by the end of 2019, there is a strong possibility that in one or more of
+the quarters of the year, the GDP will break the barrier of <strong>3 trillion €</strong></li>
+</ul>
+<p>More models developed using other forecasting approaches, such as
+<strong>exponential smoothing</strong>(exponential smoothing methods with trend and seasonality Holt-Winters) &amp;
+<strong>exponential triple smoothing</strong>, but the ARIMA model performance was better.</p>
+<p><a href="https://github.com/mantoniou/Blog/blob/master/content/post/2018-08-forecasting-arima-gdp-eurozone.Rmd">Full R code</a></p>
+</div>
+
+                </section>
+            </article>
+
+            
+
+            
+
+            
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://github.com/mantoniou">
+        github
+    </a>
+    
+    <a class="symbol" href="https://twitter.com/mantoniou1">
+        twitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        © Copyright 2021 Manos Antoniou
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="https://www.manosantoniou.com/js/jquery-3.3.1.min.js"></script>
+<script src="https://www.manosantoniou.com/js/main.js"></script>
+<script src="https://www.manosantoniou.com/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-116714552-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+
+    </body>
+</html>

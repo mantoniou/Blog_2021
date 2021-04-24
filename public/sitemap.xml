@@ -2,112 +2,112 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://clever-edison-73ae9c.netlify.app/categories/</loc>
+    <loc>https://www.manosantoniou.com/categories/</loc>
     <lastmod>2021-04-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/churn/</loc>
+    <loc>https://www.manosantoniou.com/tags/churn/</loc>
     <lastmod>2021-04-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/classification/</loc>
+    <loc>https://www.manosantoniou.com/tags/classification/</loc>
     <lastmod>2021-04-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/logistic-regression/</loc>
+    <loc>https://www.manosantoniou.com/tags/logistic-regression/</loc>
     <lastmod>2021-04-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/</loc>
+    <loc>https://www.manosantoniou.com/</loc>
     <lastmod>2021-04-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/posts/</loc>
+    <loc>https://www.manosantoniou.com/post/</loc>
     <lastmod>2021-04-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/categories/r/</loc>
+    <loc>https://www.manosantoniou.com/categories/r/</loc>
     <lastmod>2021-04-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/random-forest/</loc>
+    <loc>https://www.manosantoniou.com/tags/random-forest/</loc>
     <lastmod>2021-04-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/posts/solve-a-real-world-churn-problem-with-machine-learning-including-a-detailed-case-study/</loc>
+    <loc>https://www.manosantoniou.com/post/solve-a-real-world-churn-problem/</loc>
     <lastmod>2021-04-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/</loc>
+    <loc>https://www.manosantoniou.com/tags/</loc>
     <lastmod>2021-04-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/xgboost/</loc>
+    <loc>https://www.manosantoniou.com/tags/xgboost/</loc>
     <lastmod>2021-04-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/arima/</loc>
+    <loc>https://www.manosantoniou.com/tags/arima/</loc>
     <lastmod>2019-09-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/exponential-smoothing/</loc>
+    <loc>https://www.manosantoniou.com/tags/exponential-smoothing/</loc>
     <lastmod>2019-09-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/forecasting/</loc>
+    <loc>https://www.manosantoniou.com/tags/forecasting/</loc>
     <lastmod>2019-09-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/posts/predicting-the-future-popularity-of-programming-languages/</loc>
+    <loc>https://www.manosantoniou.com/post/predicting-the-future-popularity-of-programming-languages/</loc>
     <lastmod>2019-09-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/about/</loc>
+    <loc>https://www.manosantoniou.com/about/</loc>
     <lastmod>2019-02-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/clustering/</loc>
+    <loc>https://www.manosantoniou.com/tags/clustering/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/posts/clustering-of-eu-countries/</loc>
+    <loc>https://www.manosantoniou.com/post/clustering-of-eu-countries/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/k-means/</loc>
+    <loc>https://www.manosantoniou.com/tags/k-means/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/pca/</loc>
+    <loc>https://www.manosantoniou.com/tags/pca/</loc>
     <lastmod>2018-10-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/eurostat/</loc>
+    <loc>https://www.manosantoniou.com/tags/eurostat/</loc>
     <lastmod>2018-08-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/posts/forecasting-gdp-in-the-eurozone/</loc>
+    <loc>https://www.manosantoniou.com/post/forecasting-arima-modelling-gdp-eurostat/</loc>
     <lastmod>2018-08-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/lda/</loc>
+    <loc>https://www.manosantoniou.com/tags/lda/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/text-analytics/</loc>
+    <loc>https://www.manosantoniou.com/tags/text-analytics/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/posts/text-analytics-topic-modelling-on-music-genres-song-lyrics/</loc>
+    <loc>https://www.manosantoniou.com/post/text-analytics-topic-modelling-songs-lyrics/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/tidytext/</loc>
+    <loc>https://www.manosantoniou.com/tags/tidytext/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/topic-modelling/</loc>
+    <loc>https://www.manosantoniou.com/tags/topic-modelling/</loc>
     <lastmod>2018-06-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/smoothing/</loc>
+    <loc>https://www.manosantoniou.com/tags/smoothing/</loc>
     <lastmod>2018-04-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/time-series/</loc>
+    <loc>https://www.manosantoniou.com/tags/time-series/</loc>
     <lastmod>2018-04-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/web-scraping/</loc>
+    <loc>https://www.manosantoniou.com/tags/web-scraping/</loc>
     <lastmod>2018-04-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/posts/web-scraping-and-analyzing-400000-articles/</loc>
+    <loc>https://www.manosantoniou.com/post/web-scraping-and-analyzing-400-000-articles/</loc>
     <lastmod>2018-04-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/decision-trees/</loc>
+    <loc>https://www.manosantoniou.com/tags/decision-trees/</loc>
     <lastmod>2018-02-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/posts/predict-using-classification-methods/</loc>
+    <loc>https://www.manosantoniou.com/post/predict-using-classification-methods/</loc>
     <lastmod>2018-02-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/posts/build-a-letter-recognition-classifier/</loc>
+    <loc>https://www.manosantoniou.com/post/2017-12-28-build-a-letter-recognition-classifier/</loc>
     <lastmod>2017-12-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/k-nn/</loc>
+    <loc>https://www.manosantoniou.com/tags/k-nn/</loc>
     <lastmod>2017-12-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://clever-edison-73ae9c.netlify.app/tags/svd/</loc>
+    <loc>https://www.manosantoniou.com/tags/svd/</loc>
     <lastmod>2017-12-28T00:00:00+00:00</lastmod>
   </url>
 </urlset>

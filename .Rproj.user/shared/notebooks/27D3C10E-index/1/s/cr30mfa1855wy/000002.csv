@@ -1,5 +1,0 @@
-"0","# Create a logistic regression model
-glm <- glm(diagnosis ~ ., family=binomial(link='logit'), data = med)
-"
-"2","Error in eval(family$initialize) : y values must be 0 <= y <= 1
-"

@@ -1,5 +1,0 @@
-"0",""
-"0","filter(yearly_nest, key == ""forecast"") %>%"
-"0","  top_n(15) %>% "
-"0","  kable() %>% "
-"0","  kable_styling()"
