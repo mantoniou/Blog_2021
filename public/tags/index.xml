@@ -79,5 +79,32 @@
       <description></description>
     </item>
     
+    <item>
+      <title>clustering</title>
+      <link>https://clever-edison-73ae9c.netlify.app/tags/clustering/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://clever-edison-73ae9c.netlify.app/tags/clustering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>K-means</title>
+      <link>https://clever-edison-73ae9c.netlify.app/tags/k-means/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://clever-edison-73ae9c.netlify.app/tags/k-means/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PCA</title>
+      <link>https://clever-edison-73ae9c.netlify.app/tags/pca/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://clever-edison-73ae9c.netlify.app/tags/pca/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

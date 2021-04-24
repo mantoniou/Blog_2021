@@ -28,5 +28,19 @@ A customer is considered as churn when he/she stop using your company’s produc
 Each Stack Overflow question has a tag, which marks a question to describe its topic or technology. This data has one observation for each pair of a tag and a year, showing the number of questions asked in that tag in that year and the total number of questions asked in that year.</description>
     </item>
     
+    <item>
+      <title>Clustering of EU countries</title>
+      <link>https://clever-edison-73ae9c.netlify.app/posts/clustering-of-eu-countries/</link>
+      <pubDate>Sat, 27 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://clever-edison-73ae9c.netlify.app/posts/clustering-of-eu-countries/</guid>
+      <description>In this article I used a public Eurostat dataset, to develop a segmentation of the EU countries. This dataset consists of 5 confidence indicators:
+ Consumer Confidence Indicator
+ Construction confidence indicator
+ Industrial confidence indicator
+ Retail confidence indicator
+ Services Confidence Indicator  These indicators are formed via qualitative surveys which are conducted on a monthly basis in the following areas: manufacturing industry, construction, consumers, retail trade, services and financial services.</description>
+    </item>
+    
   </channel>
 </rss>
