@@ -187,5 +187,23 @@
       <description></description>
     </item>
     
+    <item>
+      <title>k-NN</title>
+      <link>https://clever-edison-73ae9c.netlify.app/tags/k-nn/</link>
+      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://clever-edison-73ae9c.netlify.app/tags/k-nn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SVD</title>
+      <link>https://clever-edison-73ae9c.netlify.app/tags/svd/</link>
+      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://clever-edison-73ae9c.netlify.app/tags/svd/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

@@ -49,7 +49,7 @@ In our case, we focus on the last strategy i.e. increase the retention period of
 
 At first we are loading all libraries.
 
-```{r message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE, background='#F7F7F7'}
 library(tidyverse)
 library(ggthemes)
 library(correlationfunnel)

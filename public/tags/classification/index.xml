@@ -24,7 +24,19 @@ A customer is considered as churn when he/she stop using your company’s produc
       <pubDate>Mon, 19 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>https://clever-edison-73ae9c.netlify.app/posts/predict-using-classification-methods/</guid>
-      <description>title: Predict using classification methods  author: ’’  date: ‘2018-02-19’  description: &#34;Build a model that will predict whether a tumor  is malignant or benign, based on data from a study on breast cancer.&#34;  slug: predict-using-classification-methods  categories:  - R  tags:  - classification  - Decision trees  - Logistic regression  - clustering    In this analysis i’ll try to build a model that will predict whether a tumor is malignant or benign, based on data from a study on breast cancer.</description>
+      <description>In this analysis i’ll try to build a model that will predict whether a tumor is malignant or benign, based on data from a study on breast cancer. Classification algorithms will be used in the modelling process.
+The dataset The data for this analysis refer to 569 patients from a study on breast cancer. The actual data can be found at UCI (Machine Learning Repository): https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic). The variables were computed from a digitized image of a breast mass and describe characteristics of the cell nucleus present in the image.</description>
+    </item>
+    
+    <item>
+      <title>Build a letter recognition classifier</title>
+      <link>https://clever-edison-73ae9c.netlify.app/posts/build-a-letter-recognition-classifier/</link>
+      <pubDate>Thu, 28 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://clever-edison-73ae9c.netlify.app/posts/build-a-letter-recognition-classifier/</guid>
+      <description>In this analysis i’ll develop a model that will predict the hand-written capital letters (English) displayed in a picture, using various of it’s attributes.
+INTRODUCTION Dataset Information
+This data set was originally used in the paper of P. W. Frey and D. J. Slate.“Letter Recognition Using Holland-style Adaptive Classifiers” (Machine Learning Vol 6 #2 March 91). It investigated the ability of several variations of Holland-style adaptive classifier systems to learn to correctly guess the letter categories associated with vectors of 16 integer attributes extracted from raster scan images of the letters.</description>
     </item>
     
   </channel>
