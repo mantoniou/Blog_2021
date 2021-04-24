@@ -1,0 +1,5 @@
+"0","library(corrplot)"
+"0",""
+"0","# Plot correlogram of numeric variables"
+"0","corrplot(cor(med[,2:11]), type=""lower"", tl.srt = 90)"
+"0",""

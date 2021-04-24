@@ -17,5 +17,15 @@
 Each Stack Overflow question has a tag, which marks a question to describe its topic or technology. This data has one observation for each pair of a tag and a year, showing the number of questions asked in that tag in that year and the total number of questions asked in that year.</description>
     </item>
     
+    <item>
+      <title>Forecasting GDP in the eurozone</title>
+      <link>https://clever-edison-73ae9c.netlify.app/posts/forecasting-gdp-in-the-eurozone/</link>
+      <pubDate>Sun, 26 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://clever-edison-73ae9c.netlify.app/posts/forecasting-gdp-in-the-eurozone/</guid>
+      <description>This analysis uses public Eurostat datasets, to forecast future total quarterly GDP of all eurozone countries. Eurostat is the statistical office of the European Union situated in Luxembourg. Its mission is to provide high quality statistics for Europe. Eurostat offers a whole range of important and interesting data that governments, businesses, the education sector, journalists and the public can use for their work and daily life.
+In particular, the eurozone (EU 19) quarterly GDP (Gross domestic product) dataset is used.</description>
+    </item>
+    
   </channel>
 </rss>

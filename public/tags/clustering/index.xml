@@ -21,5 +21,14 @@
  Services Confidence Indicator  These indicators are formed via qualitative surveys which are conducted on a monthly basis in the following areas: manufacturing industry, construction, consumers, retail trade, services and financial services.</description>
     </item>
     
+    <item>
+      <title>Predict using classification methods</title>
+      <link>https://clever-edison-73ae9c.netlify.app/posts/predict-using-classification-methods/</link>
+      <pubDate>Mon, 19 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://clever-edison-73ae9c.netlify.app/posts/predict-using-classification-methods/</guid>
+      <description>title: Predict using classification methods  author: ’’  date: ‘2018-02-19’  description: &#34;Build a model that will predict whether a tumor  is malignant or benign, based on data from a study on breast cancer.&#34;  slug: predict-using-classification-methods  categories:  - R  tags:  - classification  - Decision trees  - Logistic regression  - clustering    In this analysis i’ll try to build a model that will predict whether a tumor is malignant or benign, based on data from a study on breast cancer.</description>
+    </item>
+    
   </channel>
 </rss>

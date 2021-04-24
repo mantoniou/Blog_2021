@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Logistic Regression on Manos Antoniou</title>
+    <title>Logistic regression on Manos Antoniou</title>
     <link>https://clever-edison-73ae9c.netlify.app/tags/logistic-regression/</link>
-    <description>Recent content in Logistic Regression on Manos Antoniou</description>
+    <description>Recent content in Logistic regression on Manos Antoniou</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 22 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://clever-edison-73ae9c.netlify.app/tags/logistic-regression/index.xml" rel="self" type="application/rss+xml" />
@@ -16,6 +16,15 @@
       <description>Use R &amp;amp; Tidyverse to develop a churn management strategy…
 Churn definition Customer churn is a major problem for most of the companies. Losing customers require gaining new customers to replace them. This could be around 10X more expensive than retaining existing customers, depending on the domain.
 A customer is considered as churn when he/she stop using your company’s product or service. This is easy to define it for contractual setting, as a customer is considered as churn when fails to renew the contract.</description>
+    </item>
+    
+    <item>
+      <title>Predict using classification methods</title>
+      <link>https://clever-edison-73ae9c.netlify.app/posts/predict-using-classification-methods/</link>
+      <pubDate>Mon, 19 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://clever-edison-73ae9c.netlify.app/posts/predict-using-classification-methods/</guid>
+      <description>title: Predict using classification methods  author: ’’  date: ‘2018-02-19’  description: &#34;Build a model that will predict whether a tumor  is malignant or benign, based on data from a study on breast cancer.&#34;  slug: predict-using-classification-methods  categories:  - R  tags:  - classification  - Decision trees  - Logistic regression  - clustering    In this analysis i’ll try to build a model that will predict whether a tumor is malignant or benign, based on data from a study on breast cancer.</description>
     </item>
     
   </channel>

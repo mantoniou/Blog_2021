@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Text analytics &amp; topic modelling on music genres song lyrics | Manos Antoniou</title>
+
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+<meta name="viewport" content="width=device-width,minimum-scale=1">
+<meta name="description" content="Perform web scraping and analysis on 400,000 articles published by NEWSBEAST.GR, one of the main on-line publishers in Greece">
+<meta name="generator" content="Hugo 0.82.1" />
+
+
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+ 
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-116714552-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+
+  </head>
+
+  <body>
+    <nav class="navigation">
+	
+		<a href="/"> <span class="arrow">←</span>Home</a>
+	
+	<a href="/posts">Archive</a>
+	<a href="/tags">Tags</a>
+	<a href="/about">About</a>
+
+	
+		<a href="/project">Project</a>
+	
+
+	
+	  <a class="button" href="https://clever-edison-73ae9c.netlify.app/index.xml">Subscribe</a>
+	
+</nav>
+
+
+    <main class="main">
+      
+
+<section id="single">
+    <h1 class="title">Text analytics &amp; topic modelling on music genres song lyrics</h1>
+
+    <div class="tip">
+        <span>
+          Jun 24, 2018 00:00
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          
+            928 words
+          
+        </span>
+        <span class="split">
+          ·
+        </span>
+        <span>
+          5 minute read
+        </span>
+    </div>
+
+    <div class="content">
+      
+<script src="https://clever-edison-73ae9c.netlify.app/posts/text-analytics-topic-modelling-on-music-genres-song-lyrics/index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>This analysis uses a dataset of more than 380,000 songs since 1970 published
+in <a href="https://www.kaggle.com/gyani95/380000-lyrics-from-metrolyrics/data">kaggle</a>.
+The main objective is to <strong>develop clusters of music genres by the song lyrics</strong>
+and the steps are the following:</p>
+<ul>
+<li>Data preparation (cleansing, transform etc.)</li>
+<li>Exploratory analysis<br />
+</li>
+<li>Topic modelling</li>
+</ul>
+<p>Various R libraries were used, but it is mainly based on <a href="https://twitter.com/hashtag/tidytext?src=hash">#tidytext</a>
+and <a href="https://twitter.com/hashtag/tidyverse?src=hash">#tidyverse</a> environment.</p>
+<p>Data preparation was a very important part of the analysis. The first
+step was to exclude all songs, where the text field of lyrics was less than 10
+characters long.<br />
+Then, after looking at the lyrics text field, it seems that there were a lot
+of non-English songs. The decision was to include only English
+language songs in the final dataset. So, by using the <strong>cld3</strong> library, the
+origin of the songs was detected &amp; added to the dataset. The language detection wasn’t perfect, as it
+misclassified a few songs. But because of the large original dataset, i
+decided to use it and remove all non-English songs from the dataset.<br />
+Finally all songs that music genre was either missing or unknown were removed.
+Also all songs with invalid year input (less than 1970) were removed.</p>
+<p>More details about these steps can be found, in the actual code, at the end of
+the article.</p>
+<div id="main-analysis" class="section level1">
+<h1>MAIN ANALYSIS</h1>
+<p>Below there is a statistical table and a frequency plot to indicate the
+differences between the music genres.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-6">Table 1: </span>Songs per genre</caption>
+<thead>
+<tr class="header">
+<th align="left">Genre</th>
+<th align="right">Total songs</th>
+<th align="right">Proportion(%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Rock</td>
+<td align="right">99845</td>
+<td align="right">42.38</td>
+</tr>
+<tr class="even">
+<td align="left">Pop</td>
+<td align="right">34291</td>
+<td align="right">14.56</td>
+</tr>
+<tr class="odd">
+<td align="left">Hip-Hop</td>
+<td align="right">22776</td>
+<td align="right">9.67</td>
+</tr>
+<tr class="even">
+<td align="left">Metal</td>
+<td align="right">21181</td>
+<td align="right">8.99</td>
+</tr>
+<tr class="odd">
+<td align="left">Not Available</td>
+<td align="right">17265</td>
+<td align="right">7.33</td>
+</tr>
+<tr class="even">
+<td align="left">Country</td>
+<td align="right">14227</td>
+<td align="right">6.04</td>
+</tr>
+<tr class="odd">
+<td align="left">Jazz</td>
+<td align="right">7322</td>
+<td align="right">3.11</td>
+</tr>
+<tr class="even">
+<td align="left">Electronic</td>
+<td align="right">6778</td>
+<td align="right">2.88</td>
+</tr>
+<tr class="odd">
+<td align="left">Other</td>
+<td align="right">3908</td>
+<td align="right">1.66</td>
+</tr>
+<tr class="even">
+<td align="left">R&amp;B</td>
+<td align="right">3343</td>
+<td align="right">1.42</td>
+</tr>
+<tr class="odd">
+<td align="left">Indie</td>
+<td align="right">2957</td>
+<td align="right">1.26</td>
+</tr>
+<tr class="even">
+<td align="left">Folk</td>
+<td align="right">1695</td>
+<td align="right">0.72</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://clever-edison-73ae9c.netlify.app/posts/text-analytics-topic-modelling-on-music-genres-song-lyrics/index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Most songs belong to the <strong>Rock</strong> genre, almost 50% of all songs
+in this dataset. The top 5 music genres are Rock, Pop, Hip-Hop, Metal &amp; Country.</p>
+<p>It would be interesting to see if this is constant through time, or not.
+Below there is a plot indicates the variation through years.</p>
+<p><img src="https://clever-edison-73ae9c.netlify.app/posts/text-analytics-topic-modelling-on-music-genres-song-lyrics/index_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>There are a few findings here. At first Rock genre decreases (from 60 % to 25 %)
+in overall proportion of songs. On the other hand, hip-hop gradually rises
+(currently near to 20 %). Pop is around to 20 % and fairly steady through years.</p>
+<p>Now let’s try to figure out which music genre uses more lyrics.</p>
+<p><img src="https://clever-edison-73ae9c.netlify.app/posts/text-analytics-topic-modelling-on-music-genres-song-lyrics/index_files/figure-html/unnamed-chunk-9-1.png" width="672" /><img src="https://clever-edison-73ae9c.netlify.app/posts/text-analytics-topic-modelling-on-music-genres-song-lyrics/index_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
+<p>Hip-Hop seems to be a significantly different music genre, as it uses
+<strong>more than double</strong> lyrics per song than the rest of the genres.</p>
+</div>
+<div id="wordcloud" class="section level1">
+<h1>WORDCLOUD</h1>
+<p>It is interesting to see which are the most used words in each music genre.
+Below there are word clouds for the top 5 music genres.
+Word clouds (also known as text clouds or tag clouds) work in a simple way:
+the more a specific word appears in a source of textual data, the bigger
+and bolder it appears in the word cloud.<br />
+Below there are word clouds for the top 5 music genres.</p>
+<p><img src="https://clever-edison-73ae9c.netlify.app/posts/text-analytics-topic-modelling-on-music-genres-song-lyrics/index_files/figure-html/unnamed-chunk-10-1.png" width="672" /><img src="https://clever-edison-73ae9c.netlify.app/posts/text-analytics-topic-modelling-on-music-genres-song-lyrics/index_files/figure-html/unnamed-chunk-10-2.png" width="672" /><img src="https://clever-edison-73ae9c.netlify.app/posts/text-analytics-topic-modelling-on-music-genres-song-lyrics/index_files/figure-html/unnamed-chunk-10-3.png" width="672" /><img src="https://clever-edison-73ae9c.netlify.app/posts/text-analytics-topic-modelling-on-music-genres-song-lyrics/index_files/figure-html/unnamed-chunk-10-4.png" width="672" /><img src="https://clever-edison-73ae9c.netlify.app/posts/text-analytics-topic-modelling-on-music-genres-song-lyrics/index_files/figure-html/unnamed-chunk-10-5.png" width="672" /></p>
+</div>
+<div id="topic-modelling" class="section level1">
+<h1>TOPIC MODELLING</h1>
+<p>Consider, for example, a situation in which you are confronted with a large
+collection of documents but have no idea what they are about. One of the first
+things you might want to do is to classify these documents into topics or themes.
+Among other things this would help you figure out if there’s anything interest
+while also directing you to the relevant subsets of the corpus. For small
+collections, one could do this by simply going through each document but this
+is clearly unfeasible for corpuses containing thousands of documents.</p>
+<p><strong>Topic modeling</strong> deals with the problem of automatically
+classifying sets of documents into themes. The algorithm chosen is
+<strong>Latent Dirichlet Allocation or LDA</strong>, which essentially is a technique that
+facilitates the automatic discovery of themes in a collection of documents.</p>
+<p>The basic assumption behind LDA is that each of the documents in a collection
+consist of a mixture of collection-wide topics. However, in reality we observe
+only documents and words, not topics – the latter are part of the hidden (or latent)
+structure of documents. The aim is to infer the latent topic structure given the
+words and document. LDA does this by recreating the documents in the corpus by
+adjusting the relative importance of topics in documents and words in topics
+iteratively.</p>
+<p>In our case an LDA model with two topics was developed. After computing the topic
+probabilities for all songs, we can see if this unsupervised learning, distinguish
+or reveal associations between music genres (regarding their lyrics).<br />
+The box-plot below, reveals the probabilities of each music genre song to belong
+in each of the three topics.</p>
+<p><img src="https://clever-edison-73ae9c.netlify.app/posts/text-analytics-topic-modelling-on-music-genres-song-lyrics/index_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>Hip-Hop genre is almost uniquely identified as a single topic (topic 2).
+The rest of the music genres seem to be identified as another topic.<br />
+So we can say that <strong>Hip-Hop is definetely a music genre that uses significantly different language</strong>
+in the lyrics than the rest of the genres.<br />
+More LDA models were developed (three &amp; four topics) but the outcome of the initial
+model (two topics) was more relevant and significant.</p>
+<p><strong>CONCLUSION</strong><br />
+Finally we can conclude that:<br />
+- There is one music genre, Hip-hop, that is <strong>significantly</strong> different than
+the rest of the genres, as it uses much more &amp; different lyrics.<br />
+- Rock genre is gradually decreases in popularity through years, by including less
+songs and new genres are emerging.</p>
+<p><strong>HARDWARE ENVIRONMENT</strong><br />
+All tasks of the analysis were accomplished on a laptop with 8 GB RAM &amp; Intel
+Core I5 2.1 GHz. Some of the tasks can be demanding (for large datasets with
+text data). e.g. the LDA modelling task took around 7-8 minutes to complete.</p>
+<p><a href="https://github.com/mantoniou/Blog/blob/master/content/post/2018-06-text-analytics-song-lyrics.Rmd">Full R code</a></p>
+</div>
+
+    </div>
+
+    
+        <div class="tags">
+            
+                <a href="https://clever-edison-73ae9c.netlify.app/tags/text-analytics">Text analytics</a>
+            
+                <a href="https://clever-edison-73ae9c.netlify.app/tags/tidytext">Tidytext</a>
+            
+                <a href="https://clever-edison-73ae9c.netlify.app/tags/lda">LDA</a>
+            
+                <a href="https://clever-edison-73ae9c.netlify.app/tags/topic-modelling">Topic modelling</a>
+            
+        </div>
+    
+    
+     
+  <div id="comment">
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "your-disqus-shortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+
+
+</section>
+
+
+    </main>
+    
+    <footer id="footer">
+    
+        <div id="social">
+
+
+    <a class="symbol" href="https://www.linkedin.com/in/manos-antoniou-a558001b" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Facebook</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-152.000000, -43.000000)">
+            <g id="Facebook" transform="translate(152.000000, 43.000000)">
+                <rect id="Rounded" fill="#bbbbbb" x="0" y="0" width="72" height="72" rx="8"></rect>
+                <path d="M60.4641463,13.4173171 L60.4641463,22.7278049 L54.9382927,22.7421951 C50.6068293,22.7421951 49.7721951,24.8 49.7721951,27.807561 L49.7721951,34.4702439 L60.09,34.4702439 L58.7517073,44.8887805 L49.7721951,44.8887805 L49.7721951,72 L39.0097317,72 L39.0097317,44.8887805 L30,44.8887805 L30,34.4702439 L39.0097317,34.4702439 L39.0097317,26.7858537 C39.0097317,17.8639024 44.4478049,13 52.42,13 C56.2204634,13 59.5,13.2878049 60.4641463,13.4173171 Z" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="https://github.com/mantoniou" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28"  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>Github</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)">
+            <g id="Github" transform="translate(264.000000, 939.000000)">
+                <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#bbbbbb"></path>
+                <path d="M35.9985,13 C22.746,13 12,23.7870921 12,37.096644 C12,47.7406712 18.876,56.7718301 28.4145,59.9584121 C29.6145,60.1797862 30.0525,59.4358488 30.0525,58.7973276 C30.0525,58.2250681 30.0315,56.7100863 30.0195,54.6996482 C23.343,56.1558981 21.9345,51.4693938 21.9345,51.4693938 C20.844,48.6864054 19.2705,47.9454799 19.2705,47.9454799 C17.091,46.4500754 19.4355,46.4801943 19.4355,46.4801943 C21.843,46.6503662 23.1105,48.9634994 23.1105,48.9634994 C25.2525,52.6455377 28.728,51.5823398 30.096,50.9649018 C30.3135,49.4077535 30.9345,48.3460615 31.62,47.7436831 C26.2905,47.1352808 20.688,45.0691228 20.688,35.8361671 C20.688,33.2052792 21.6225,31.0547881 23.1585,29.3696344 C22.911,28.7597262 22.0875,26.3110578 23.3925,22.9934585 C23.3925,22.9934585 25.4085,22.3459017 29.9925,25.4632101 C31.908,24.9285993 33.96,24.6620468 36.0015,24.6515052 C38.04,24.6620468 40.0935,24.9285993 42.0105,25.4632101 C46.5915,22.3459017 48.603,22.9934585 48.603,22.9934585 C49.9125,26.3110578 49.089,28.7597262 48.8415,29.3696344 C50.3805,31.0547881 51.309,33.2052792 51.309,35.8361671 C51.309,45.0917119 45.6975,47.1292571 40.3515,47.7256117 C41.2125,48.4695491 41.9805,49.9393525 41.9805,52.1877301 C41.9805,55.4089489 41.9505,58.0067059 41.9505,58.7973276 C41.9505,59.4418726 42.3825,60.1918338 43.6005,59.9554002 C53.13,56.7627944 60,47.7376593 60,37.096644 C60,23.7870921 49.254,13 35.9985,13" fill="#FFFFFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>
+    </a>
+
+    <a class="symbol" href="https://twitter.com/mantoniou1" target="_blank">
+        
+        <svg fill="#bbbbbb" width="28" height="28" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="438.536px" height="438.536px" viewBox="0 0 438.536 438.536" style="enable-background:new 0 0 438.536 438.536;"
+	 xml:space="preserve">
+<g>
+	<path d="M414.41,24.123C398.333,8.042,378.963,0,356.315,0H82.228C59.58,0,40.21,8.042,24.126,24.123
+		C8.045,40.207,0.003,59.576,0.003,82.225v274.084c0,22.647,8.042,42.018,24.123,58.102c16.084,16.084,35.454,24.126,58.102,24.126
+		h274.084c22.648,0,42.018-8.042,58.095-24.126c16.084-16.084,24.126-35.454,24.126-58.102V82.225
+		C438.532,59.576,430.49,40.204,414.41,24.123z M335.471,168.735c0.191,1.713,0.288,4.278,0.288,7.71
+		c0,15.989-2.334,32.025-6.995,48.104c-4.661,16.087-11.8,31.504-21.416,46.254c-9.606,14.749-21.074,27.791-34.396,39.115
+		c-13.325,11.32-29.311,20.365-47.968,27.117c-18.648,6.762-38.637,10.143-59.953,10.143c-33.116,0-63.76-8.952-91.931-26.836
+		c4.568,0.568,9.329,0.855,14.275,0.855c27.6,0,52.439-8.565,74.519-25.7c-12.941-0.185-24.506-4.179-34.688-11.991
+		c-10.185-7.803-17.273-17.699-21.271-29.691c4.947,0.76,8.658,1.137,11.132,1.137c4.187,0,9.042-0.76,14.56-2.279
+		c-13.894-2.669-25.598-9.562-35.115-20.697c-9.519-11.136-14.277-23.84-14.277-38.114v-0.571
+		c10.085,4.755,19.602,7.229,28.549,7.422c-17.321-11.613-25.981-28.265-25.981-49.963c0-10.66,2.758-20.747,8.278-30.264
+		c15.035,18.464,33.311,33.213,54.816,44.252c21.507,11.038,44.54,17.227,69.092,18.558c-0.95-3.616-1.427-8.186-1.427-13.704
+		c0-16.562,5.853-30.692,17.56-42.399c11.703-11.706,25.837-17.561,42.394-17.561c17.515,0,32.079,6.283,43.688,18.846
+		c13.134-2.474,25.892-7.33,38.26-14.56c-4.757,14.652-13.613,25.788-26.55,33.402c12.368-1.716,23.88-4.95,34.537-9.708
+		C357.458,149.793,347.462,160.166,335.471,168.735z"/>
+</g>
+</svg>
+
+    </a>
+
+
+</div>
+
+    
+
+    <p class="copyright">
+    
+        © Copyright 2021 Manos Antoniou
+    
+    </p>
+    <p class="powerby">
+        Powered by <a href="http://www.gohugo.io/">Hugo</a> Theme By <a href="https://github.com/nodejh/hugo-theme-cactus-plus">nodejh</a>
+    </p>
+</footer>
+
+  </body>
+</html>
