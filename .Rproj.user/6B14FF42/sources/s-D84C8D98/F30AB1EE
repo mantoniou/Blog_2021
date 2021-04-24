@@ -3,7 +3,7 @@
     "path": "~/OneDrive/Projects/R/Blog_2021/config.yaml",
     "project_path": "config.yaml",
     "type": "yaml",
-    "hash": "0",
+    "hash": "976530796",
     "contents": "",
     "dirty": false,
     "created": 1619253597349.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "44,17",
+        "cursorPosition": "0,39",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1619267828,
+    "lastKnownWriteTime": 1619268872,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1619267828547,
+    "last_content_update": 1619268872994,
     "read_only": false,
     "read_only_alternatives": []
 }
