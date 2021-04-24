@@ -53,92 +53,29 @@
     </item>
     
     <item>
-      <title>plot</title>
-      <link>https://clever-edison-73ae9c.netlify.app/tags/plot/</link>
-      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      <title>Arima</title>
+      <link>https://clever-edison-73ae9c.netlify.app/tags/arima/</link>
+      <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://clever-edison-73ae9c.netlify.app/tags/plot/</guid>
+      <guid>https://clever-edison-73ae9c.netlify.app/tags/arima/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>R Markdown</title>
-      <link>https://clever-edison-73ae9c.netlify.app/tags/r-markdown/</link>
-      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      <title>Exponential Smoothing</title>
+      <link>https://clever-edison-73ae9c.netlify.app/tags/exponential-smoothing/</link>
+      <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://clever-edison-73ae9c.netlify.app/tags/r-markdown/</guid>
+      <guid>https://clever-edison-73ae9c.netlify.app/tags/exponential-smoothing/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>regression</title>
-      <link>https://clever-edison-73ae9c.netlify.app/tags/regression/</link>
-      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      <title>Forecasting</title>
+      <link>https://clever-edison-73ae9c.netlify.app/tags/forecasting/</link>
+      <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://clever-edison-73ae9c.netlify.app/tags/regression/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>css</title>
-      <link>https://clever-edison-73ae9c.netlify.app/tags/css/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://clever-edison-73ae9c.netlify.app/tags/css/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>html</title>
-      <link>https://clever-edison-73ae9c.netlify.app/tags/html/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://clever-edison-73ae9c.netlify.app/tags/html/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>markdown</title>
-      <link>https://clever-edison-73ae9c.netlify.app/tags/markdown/</link>
-      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://clever-edison-73ae9c.netlify.app/tags/markdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>privacy</title>
-      <link>https://clever-edison-73ae9c.netlify.app/tags/privacy/</link>
-      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://clever-edison-73ae9c.netlify.app/tags/privacy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>shortcodes</title>
-      <link>https://clever-edison-73ae9c.netlify.app/tags/shortcodes/</link>
-      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://clever-edison-73ae9c.netlify.app/tags/shortcodes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>text</title>
-      <link>https://clever-edison-73ae9c.netlify.app/tags/text/</link>
-      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://clever-edison-73ae9c.netlify.app/tags/text/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>emoji</title>
-      <link>https://clever-edison-73ae9c.netlify.app/tags/emoji/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://clever-edison-73ae9c.netlify.app/tags/emoji/</guid>
+      <guid>https://clever-edison-73ae9c.netlify.app/tags/forecasting/</guid>
       <description></description>
     </item>
     
