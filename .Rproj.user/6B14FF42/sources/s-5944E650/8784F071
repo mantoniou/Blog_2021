@@ -3,7 +3,7 @@
     "path": "~/OneDrive/Projects/R/Blog_2021/content/post/2021-04-24-solve-a-real-world-churn-problem-with-machine-learning-including-a-detailed-case-study/index.Rmd",
     "project_path": "content/post/2021-04-24-solve-a-real-world-churn-problem-with-machine-learning-including-a-detailed-case-study/index.Rmd",
     "type": "r_markdown",
-    "hash": "925065716",
+    "hash": "596351917",
     "contents": "",
     "dirty": false,
     "created": 1619282210213.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "17,61",
-        "scrollLine": "13"
+        "cursorPosition": "437,328",
+        "scrollLine": "427"
     },
     "folds": "",
-    "lastKnownWriteTime": 1619282267,
+    "lastKnownWriteTime": 1619328395,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1619282267457,
+    "last_content_update": 1619328395703,
     "read_only": false,
     "read_only_alternatives": []
 }

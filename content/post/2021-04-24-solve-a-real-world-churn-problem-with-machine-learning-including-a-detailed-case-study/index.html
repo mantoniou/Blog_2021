@@ -20,8 +20,8 @@ tags:
 <p><strong>Use R &amp; Tidyverse to develop a churn management strategy</strong></p>
 <div id="churn-definition" class="section level3">
 <h3>Churn definition</h3>
-<p>Customer churn is a major problem for most of the companies. Losing customers require gaining new customers to replace them. This could be around 10X more expensive than retaining existing customers, depending on the domain.</p>
-<p>A customer is considered as churn when he/she stop using your company’s product or service. This is easy to define it for contractual setting, as a customer is considered as churn when fails to renew the contract. But in a non-contractual setting there aren’t clear rules for defining churn. In most of these cases, business users with extended domain knowledge together with data scientists/data analysts define what is considered as churn in the specific problem. e.g. in a retail organization the team could define that a customer is a churn when fails to purchase for the last 4 months.</p>
+<p>Customer churn is a major problem for most companies. Losing customers requires gaining new customers to replace them. This could be around 10X more expensive than retaining existing customers, depending on the domain.</p>
+<p>A customer is considered churn when he/she stops using your company’s product or service. This is easy to define for a contractual setting, as a customer is considered as churn when fails to renew the contract. But in a non-contractual setting, there aren’t clear rules for defining churn. In most of these cases, business users with extended domain knowledge work together with data scientists/data analysts to define what is considered to be churn in the specific problem. For example, in a retail organization, the team could define that a customer is a churn when he fails to purchase anything in the last 4 months.</p>
 </div>
 <div id="benefits-of-churn-management" class="section level3">
 <h3>Benefits of churn management</h3>
@@ -29,7 +29,7 @@ tags:
 </div>
 <div id="churn-rate" class="section level3">
 <h3>Churn rate</h3>
-<p>You can calculate churn rate by dividing the number of customers lost during a specific time period – say a quarter or a year – by the number of customers we had at the beginning of that time period.</p>
+<p>You can calculate the churn rate by dividing the number of customers we lost during a specific period — say a quarter or a year — by the number of customers we had at the beginning of that period.</p>
 <p>For example, if we start the quarter with 400 customers and end with 380, our churn rate is 5% because we lost 5% or 20 of our customers.</p>
 </div>
 <div id="our-churn-problem" class="section level3">
@@ -37,8 +37,7 @@ tags:
 <p>Our case study is a bank that wants to develop a churn model to predict the probability of a customer to churn. The banking sector has become one of the main industries in developed countries. The technical progress and the increasing number of banks raised the level of competition. Banks are working hard to survive in this competitive market depending on multiple strategies.</p>
 <p>Three main strategies have been proposed to generate more revenues:</p>
 <ul>
-<li><strong>Acquire new customers</strong><br />
-</li>
+<li><strong>Acquire new customers</strong></li>
 <li><strong>Upsell the existing customers</strong> (persuade a customer to buy something additional or more expensive)</li>
 <li><strong>Increase the retention period of customers</strong></li>
 </ul>
@@ -150,7 +149,7 @@ bank &lt;-
 </div>
 <div id="categorical-variables-distribution" class="section level3">
 <h3>Categorical variables distribution</h3>
-<p>Now we want to check the distribution of categorical variables in relation to churn.</p>
+<p>Now we want to check the distribution of categorical variables concerning churn.</p>
 <pre class="r"><code>bank %&gt;% 
   select_if(is.character) %&gt;% 
   gather(key = key, value = value, - Churn, factor_key = T) %&gt;% 
@@ -165,7 +164,8 @@ bank &lt;-
 <p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <p>The main findings are:</p>
 <ul>
-<li>Customers from Germany are more likely to churn</li>
+<li>Customers from Germany are more likely to churn<br />
+</li>
 <li>Male customers are slightly less likely to churn<br />
 </li>
 <li>Active members are less likely to churn</li>
@@ -186,14 +186,11 @@ bank &lt;-
   ) +
   scale_fill_economist()</code></pre>
 <p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
-<p>The main findings are:</p>
-<ul>
-<li>It seems that higher age means higher probability of churn</li>
-</ul>
+<p>It seems that higher age means higher probability of churn</p>
 </div>
 <div id="correlation-funnel" class="section level3">
 <h3>Correlation funnel</h3>
-<p>Correlation is a very important metric to understand the relationship between variables. The package correlationfunnel produces a chart, which helps us understand the relationship of all variables (categorical &amp; numerical) with churn.</p>
+<p>Correlation is a very important metric to understand the relationship between variables. The package <strong>correlationfunnel</strong> produces a chart, which helps us understand the relationship of all variables (categorical &amp; numerical) with churn.</p>
 <p>At first, it creates binary variables of each class of categorical variables and 4 bins of each numerical variable (based on quantiles). It plots all variables starting from the most correlated to the less correlated.</p>
 <pre class="r"><code># Create correlation Funnel 
 bank %&gt;%
@@ -202,14 +199,14 @@ bank %&gt;%
     correlate(Churn__Yes) %&gt;% 
     plot_correlation_funnel()</code></pre>
 <p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
-<p>It looks that Age, Number of products, Geography &amp; Member activity seems quite important. Balance &amp; gender are less important. At last, credit score, tenure, estimated salary &amp; credit card seems to be unimportant for churn, as almost all classes are near zero correlated.</p>
+<p>It looks like Age, Number of products, Geography &amp; Member activity seem quite important. Balance &amp; gender are less important. Credit score, tenure, estimated salary &amp; credit card seem to be unimportant for churn, as almost all classes have near zero correlation.</p>
 </div>
 <div id="modelling" class="section level1">
 <h1>MODELLING</h1>
-<p>Now we can go ahead anddevelop a machine learning model that will predict the churn probability for all customers.</p>
+<p>Now we can go ahead and develop a machine learning model that will predict the churn probability for all customers.</p>
 <div id="split-dataset" class="section level3">
 <h3>Split dataset</h3>
-<p>At first, we’re splitting the dataset into 2 parts, training &amp; test dataset. We’ll use the training dataset to train our model &amp; the testing dataset to check the performance of the model.</p>
+<p>At first, we’re splitting the dataset into 2 parts, the training &amp; test dataset. We’ll use the training dataset to train our model &amp; the testing dataset to check the performance of the model.</p>
 <pre class="r"><code># Split the dataset in two parts
 set.seed(1)
 inTrain = createDataPartition(bank$Churn, p = .70)[[1]]
@@ -220,9 +217,9 @@ training &lt;- bank[inTrain,]
 # Assign the remaining 30 % of observations to testing data
 testing &lt;- bank[-inTrain,]</code></pre>
 </div>
-<div id="prepare-the-recipe-of-data-for-modeling" class="section level3">
-<h3>Prepare the recipe of data for modeling</h3>
-<p>Here we’re using the recipes package to apply the same pre-processing steps to training &amp; test data.</p>
+<div id="prepare-the-recipe-of-data-for-modelling" class="section level3">
+<h3>Prepare the recipe of data for modelling</h3>
+<p>Here we’re using the <strong>recipes</strong> package to apply the same pre-processing steps to training &amp; test data.</p>
 <pre class="r"><code># Create the recipe object
 recipe_obj &lt;- 
   recipe(Churn ~ ., data = training) %&gt;% 
@@ -237,9 +234,9 @@ recipe_obj &lt;-
 
 test_data  &lt;- bake(recipe_obj, testing)</code></pre>
 </div>
-<div id="setting-the-train-controls-for-modeling" class="section level3">
-<h3>Setting the train controls for modeling</h3>
-<p>We’re using TrainControl() function in order to specify some parameters during model training, e.g. the resampling method, number of folds in K-Fold etc.</p>
+<div id="setting-the-train-controls-for-modelling" class="section level3">
+<h3>Setting the train controls for modelling</h3>
+<p>We’re using TrainControl() function to specify some parameters during model training, e.g. the resampling method, number of folds in K-Fold etc.</p>
 <pre class="r"><code>train_ctr &lt;- trainControl(method = &#39;cv&#39;, 
                           number = 10,
                           classProbs = TRUE,
@@ -274,7 +271,7 @@ test_data  &lt;- bake(recipe_obj, testing)</code></pre>
 </div>
 <div id="model-comparison" class="section level3">
 <h3>Model Comparison</h3>
-<p>In this step we’ll compare the models accuracy.</p>
+<p>In this step, we’ll compare the models’ accuracy.</p>
 <pre class="r"><code>model_list &lt;- resamples(list(Logistic = Logistic_model,
                              Random_forest = rf_model,
                              XgBoost = xgb_model))
@@ -305,9 +302,8 @@ summary(model_list)</code></pre>
 ## Random_forest 0.3732394 0.4534128 0.4825175 0.4803211 0.5131119 0.5594406    0
 ## XgBoost       0.4265734 0.4797843 0.4964789 0.4902098 0.5034965 0.5524476    0</code></pre>
 <ul>
-<li>Based on ROC (AUC value) the best model is <strong>XgBoost</strong>.</li>
+<li>Based on ROC (AUC value) the best model is <strong>XgBoost</strong>. The AUC value of the best model (mean of logistic regression) is <strong>0.87</strong>. In general, models with an AUC value &gt; 0.7 are considered as useful, depending of course on the context of the problem.</li>
 </ul>
-<p>The AUC value of the best model (mean of logistic regression) is <strong>0.87</strong>. In general, models with an AUC value &gt; 0.7 are considered as useful, depending of course on the context of the problem.</p>
 </div>
 <div id="model-evaluation" class="section level3">
 <h3>Model evaluation</h3>
@@ -391,7 +387,7 @@ roc_curve_combine_tbl %&gt;%
 <div id="feature-importance" class="section level3">
 <h3>Feature Importance</h3>
 <p>It is important to understand how a model works, especially in a case of a churn model. A common measure that is used is the global feature importance. It measures the contribution of each variable towards the churn prediction.</p>
-<p>This importance is calculated explicitly for each attribute in the dataset, allowing attributes to be ranked and compared to each other. Importance is calculated for a single decision tree by the amount that each attribute split point improves the performance measure, weighted by the number of observations the node is responsible for. The feature importances are then averaged across all of the the decision trees within the model.</p>
+<p>This importance is calculated explicitly for each attribute in the dataset, allowing attributes to be ranked and compared to each other. Importance is calculated for a single decision tree by the amount that each attribute split point improves the performance measure, weighted by the number of observations the node is responsible for. The feature importances are then averaged across all of the decision trees within the model.</p>
 <pre class="r"><code>ggplot(varImp(xgb_model)) +
   labs(title = &quot;Feature Importance for XGBoost churn model&quot;) </code></pre>
 <p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
@@ -534,6 +530,6 @@ new_dat_pred %&gt;%
 <div id="tactics-for-churn-prevention" class="section level3">
 <h3>Tactics for churn prevention</h3>
 <p>An initial tactic is to develop different sales offers (or marketing campaigns) for the different churn risk groups.</p>
-<p>For example, customers that belong in churn risk groups 10 &amp; 9 have a significantly higher churn risk than for example 1 &amp; 2. So it will be crucial to offer them something more in order to retain them.</p>
+<p>For example, customers that belong in churn risk groups 10 &amp; 9 have a significantly higher churn risk than for example 1 &amp; 2. So it will be crucial to offer them something more to retain them.</p>
 </div>
 </div>

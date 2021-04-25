@@ -19,9 +19,9 @@ tags:
 
 ### Churn definition
 
-Customer churn is a major problem for most of the companies. Losing customers require gaining new customers to replace them. This could be around 10X more expensive than retaining existing customers, depending on the domain.
+Customer churn is a major problem for most companies. Losing customers requires gaining new customers to replace them. This could be around 10X more expensive than retaining existing customers, depending on the domain.
 
-A customer is considered as churn when he/she stop using your company's product or service. This is easy to define it for contractual setting, as a customer is considered as churn when fails to renew the contract. But in a non-contractual setting there aren't clear rules for defining churn. In most of these cases, business users with extended domain knowledge together with data scientists/data analysts define what is considered as churn in the specific problem. e.g. in a retail organization the team could define that a customer is a churn when fails to purchase for the last 4 months.
+A customer is considered churn when he/she stops using your company’s product or service. This is easy to define for a contractual setting, as a customer is considered as churn when fails to renew the contract. But in a non-contractual setting, there aren’t clear rules for defining churn. In most of these cases, business users with extended domain knowledge work together with data scientists/data analysts to define what is considered to be churn in the specific problem. For example, in a retail organization, the team could define that a customer is a churn when he fails to purchase anything in the last 4 months.
 
 ### Benefits of churn management
 
@@ -29,17 +29,17 @@ The main benefit is increased revenue by obtaining higher retention rates and cu
 
 ### Churn rate
 
-You can calculate churn rate by dividing the number of customers lost during a specific time period -- say a quarter or a year -- by the number of customers we had at the beginning of that time period.
+You can calculate the churn rate by dividing the number of customers we lost during a specific period — say a quarter or a year — by the number of customers we had at the beginning of that period.
 
 For example, if we start the quarter with 400 customers and end with 380, our churn rate is 5% because we lost 5% or 20 of our customers.
 
 ### Our churn problem
 
-Our case study is a bank that wants to develop a churn model to predict the probability of a customer to churn. The banking sector has become one of the main industries in developed countries. The technical progress and the increasing number of banks raised the level of competition. Banks are working hard to survive in this competitive market depending on multiple strategies.
+Our case study is a bank that wants to develop a churn model to predict the probability of a customer to churn. The banking sector has become one of the main industries in developed countries. The technical progress and the increasing number of banks raised the level of competition. Banks are working hard to survive in this competitive market depending on multiple strategies.  
 
 Three main strategies have been proposed to generate more revenues:
 
--   **Acquire new customers**\
+-   **Acquire new customers**
 -   **Upsell the existing customers** (persuade a customer to buy something additional or more expensive)
 -   **Increase the retention period of customers**
 
@@ -132,7 +132,7 @@ It looks that all character variables, are categorical variables with a few leve
 
 ### Categorical variables distribution
 
-Now we want to check the distribution of categorical variables in relation to churn.
+Now we want to check the distribution of categorical variables concerning churn.
 
 ```{r}
 
@@ -153,9 +153,9 @@ bank %>%
 
 The main findings are:
 
--   Customers from Germany are more likely to churn
--   Male customers are slightly less likely to churn\
--   Active members are less likely to churn
+-   Customers from Germany are more likely to churn  
+-   Male customers are slightly less likely to churn  
+-   Active members are less likely to churn  
 
 ### Numerical variables distribution
 
@@ -177,13 +177,11 @@ bank %>%
 
 ```
 
-The main findings are:
-
--   It seems that higher age means higher probability of churn
+It seems that higher age means higher probability of churn
 
 ### Correlation funnel
 
-Correlation is a very important metric to understand the relationship between variables. The package correlationfunnel produces a chart, which helps us understand the relationship of all variables (categorical & numerical) with churn.
+Correlation is a very important metric to understand the relationship between variables. The package **correlationfunnel** produces a chart, which helps us understand the relationship of all variables (categorical & numerical) with churn.
 
 At first, it creates binary variables of each class of categorical variables and 4 bins of each numerical variable (based on quantiles). It plots all variables starting from the most correlated to the less correlated.
 
@@ -198,15 +196,15 @@ bank %>%
 
 ```
 
-It looks that Age, Number of products, Geography & Member activity seems quite important. Balance & gender are less important. At last, credit score, tenure, estimated salary & credit card seems to be unimportant for churn, as almost all classes are near zero correlated.
+It looks like Age, Number of products, Geography & Member activity seem quite important. Balance & gender are less important. Credit score, tenure, estimated salary & credit card seem to be unimportant for churn, as almost all classes have near zero correlation.
 
 # MODELLING
 
-Now we can go ahead anddevelop a machine learning model that will predict the churn probability for all customers.
+Now we can go ahead and develop a machine learning model that will predict the churn probability for all customers.
 
 ### Split dataset
 
-At first, we're splitting the dataset into 2 parts, training & test dataset. We'll use the training dataset to train our model & the testing dataset to check the performance of the model.
+At first, we’re splitting the dataset into 2 parts, the training & test dataset. We’ll use the training dataset to train our model & the testing dataset to check the performance of the model.
 
 ```{r message=FALSE, warning=FALSE}
 
@@ -222,9 +220,9 @@ testing <- bank[-inTrain,]
 
 ```
 
-### Prepare the recipe of data for modeling
+### Prepare the recipe of data for modelling
 
-Here we're using the recipes package to apply the same pre-processing steps to training & test data.
+Here we're using the **recipes** package to apply the same pre-processing steps to training & test data.
 
 ```{r message=FALSE, warning=FALSE}
 
@@ -246,9 +244,9 @@ train_data <- bake(recipe_obj, training)
 test_data  <- bake(recipe_obj, testing)
 ```
 
-### Setting the train controls for modeling
+### Setting the train controls for modelling
 
-We're using TrainControl() function in order to specify some parameters during model training, e.g. the resampling method, number of folds in K-Fold etc.
+We’re using TrainControl() function to specify some parameters during model training, e.g. the resampling method, number of folds in K-Fold etc.
 
 ```{r message=FALSE, warning=FALSE}
 
@@ -313,7 +311,7 @@ load(file = "/Users/manos/OneDrive/Projects/R/All_Projects/Churn/data/ml_models_
 
 ### Model Comparison
 
-In this step we'll compare the models accuracy.
+In this step, we’ll compare the models’ accuracy.
 
 ```{r}
 
@@ -324,9 +322,7 @@ model_list <- resamples(list(Logistic = Logistic_model,
 summary(model_list)
 ```
 
--   Based on ROC (AUC value) the best model is **XgBoost**.
-
-The AUC value of the best model (mean of logistic regression) is **0.87**. In general, models with an AUC value \> 0.7 are considered as useful, depending of course on the context of the problem.
+-   Based on ROC (AUC value) the best model is **XgBoost**. The AUC value of the best model (mean of logistic regression) is **0.87**. In general, models with an AUC value \> 0.7 are considered as useful, depending of course on the context of the problem.
 
 ### Model evaluation
 
@@ -397,9 +393,9 @@ The largest the AUC value, the better is the model accuracy.
 
 ### Feature Importance
 
-It is important to understand how a model works, especially in a case of a churn model. A common measure that is used is the global feature importance. It measures the contribution of each variable towards the churn prediction.
+It is important to understand how a model works, especially in a case of a churn model. A common measure that is used is the global feature importance. It measures the contribution of each variable towards the churn prediction.  
 
-This importance is calculated explicitly for each attribute in the dataset, allowing attributes to be ranked and compared to each other. Importance is calculated for a single decision tree by the amount that each attribute split point improves the performance measure, weighted by the number of observations the node is responsible for. The feature importances are then averaged across all of the the decision trees within the model.
+This importance is calculated explicitly for each attribute in the dataset, allowing attributes to be ranked and compared to each other. Importance is calculated for a single decision tree by the amount that each attribute split point improves the performance measure, weighted by the number of observations the node is responsible for. The feature importances are then averaged across all of the decision trees within the model.
 
 ```{r}
 ggplot(varImp(xgb_model)) +
@@ -439,7 +435,7 @@ new_dat_pred %>%
 
 ### Create a churn risk ranking
 
-Although we developed a model that can predict pretty well if a customer will churn, the model output probabilities are not sufficient in the business context. We need some metric that will be understood & easily used by all stakeholders and remove the complexities of e.g. explaining a threshold to non-technical stakeholder.
+Although we developed a model that can predict pretty well if a customer will churn, the model output probabilities are not sufficient in the business context. We need some metric that will be understood & easily used by all stakeholders and remove the complexities of e.g. explaining a threshold to non-technical stakeholder.    
 
 So instead of an actual probability, a **churn risk ranking** would be more useful. So we break up the probabilities variable into 10 churn risk buckets. Now a customer has a churn risk from **1 (lowest probability) to 10 (highest probability)** .
 
@@ -447,4 +443,4 @@ So instead of an actual probability, a **churn risk ranking** would be more usef
 
 An initial tactic is to develop different sales offers (or marketing campaigns) for the different churn risk groups.
 
-For example, customers that belong in churn risk groups 10 & 9 have a significantly higher churn risk than for example 1 & 2. So it will be crucial to offer them something more in order to retain them.
+For example, customers that belong in churn risk groups 10 & 9 have a significantly higher churn risk than for example 1 & 2. So it will be crucial to offer them something more to retain them.
